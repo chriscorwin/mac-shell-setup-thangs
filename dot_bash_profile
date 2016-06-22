@@ -1,0 +1,264 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+export PATH=$HOME/bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:$PATH
+
+source ~/.profile
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Set badge to show the current session name and git branch, if any is set.
+printf "\e]1337;SetBadgeFormat=%s\a" \
+  $(echo -n "\(session.name) \(user.gitBranch)" | base64)
+
+
+# make less more friendly for non-text input files, see lesspipe(1)
+# [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# ulimit -n 65536 65536
+
+# commented out 2014-03-11 while setting up ExactTarget machine
+
+# # set variable identifying the chroot you work in (used in the prompt below)
+# if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+#     debian_chroot=$(cat /etc/debian_chroot)
+# fi
+
+# # set a fancy prompt (non-color, unless we know we "want" color)
+# case "$TERM" in
+#     xterm-color) color_prompt=yes;;
+# esac
+
+# # uncomment for a colored prompt, if the terminal has the capability; turned
+# # off by default to not distract the user: the focus in a terminal window
+# # should be on the output of commands, not on the prompt
+# #force_color_prompt=yes
+
+# if [ -n "$force_color_prompt" ]; then
+#     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+#     # We have color support; assume it's compliant with Ecma-48
+#     # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+#     # a case would tend to support setf rather than setaf.)
+#     color_prompt=yes
+#     else
+#     color_prompt=
+#     fi
+# fi
+
+# if [ "$color_prompt" = yes ]; then
+#     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# else
+#     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# fi
+# unset color_prompt force_color_prompt
+
+# # If this is an xterm set the title to user@host:dir
+# case "$TERM" in
+# xterm*|rxvt*)
+#     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#     ;;
+# *)
+#     ;;
+# esac
+
+# # enable color support of ls and also add handy aliases
+# if [ -x /usr/bin/dircolors ]; then
+#     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+#     alias ls='ls --color=auto'
+#     #alias dir='dir --color=auto'
+#     #alias vdir='vdir --color=auto'
+
+#     alias grep='grep --color=auto'
+#     alias fgrep='fgrep --color=auto'
+#     alias egrep='egrep --color=auto'
+# fi
+
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+# # some more ls aliases
+# These actually get set in my GitScripts user.overrides
+# alias ll='ls -1aFG'
+# alias lla='ls -laFG'
+# alias la='ls -AG'
+# alias l='ls -CFG'
+
+# commented out 2014-03-11 while setting up ExactTarget machine
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
+
+for file in ~/.bash_extras.d_link/*
+
+do
+	if [ -d "$file" ]; then
+		# echo "Is a directory: $file";
+		for file2 in $file
+		do
+			if [ -d "$file2" ]; then
+				# echo "Is a directory 2: $file2";
+				for file3 in $file2/*
+				do
+					if [ -d "$file3" ]; then
+						# echo "Is a directory 3: $file3";
+						for file4 in $file3/*
+						do
+							if [ -d "$file4" ]; then
+								# echo "Is a directory 4: $file4";
+								for file5 in $file4/*
+								do
+									if [ -d "$file5" ]; then
+										# echo "Is a directory 5: $file5";
+										continue
+									else
+										# echo "Is a file 5: $file5";
+										echo "${B}${COL_MAGENTA}.bash_profile will source: ${STYLE_INPUT}${file5}${X}"
+										source $file5
+									fi
+								done
+								continue
+							else
+								# echo "Is a file 4: $file4";
+								echo "${B}${COL_MAGENTA}.bash_profile will source: ${STYLE_INPUT}${file4}${X}"
+								source $file4
+							fi
+						done
+						continue
+					else
+						# echo "Is a file 3: $file3";
+						echo "${B}${COL_MAGENTA}.bash_profile will source: ${STYLE_INPUT}${file3}${X}"
+						source $file3
+					fi
+				done
+				continue
+			else
+				# echo "Is a file 2: $file2";
+				echo "${B}${COL_MAGENTA}.bash_profile will source: ${STYLE_INPUT}${file2}${X}"
+				source $file2
+			fi
+		done
+		continue
+	else
+		# echo "Is a file: $file";
+		echo "${B}${COL_MAGENTA}.bash_profile will source: ${STYLE_INPUT}${file}${X}"
+		source $file
+	fi
+done
+
+
+
+string="$PWD";
+
+if [[ $string =~ .*Workspaces.* ]]
+then
+	export PROMPT_COMMAND='echo -ne "\033]0;${PWD/\/Users\/ccorwin\/Documents\/Workspaces\//}\007"'
+fi
+
+
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob;
+
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend;
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell;
+
+# Enable some Bash 4 features when possible:
+# * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
+# * Recursive globbing, e.g. `echo **/*.txt`
+for option in autocd globstar; do
+	shopt -s "$option" 2> /dev/null;
+done;
+
+# Add tab completion for many Bash commands
+if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+	source "$(brew --prefix)/share/bash-completion/bash_completion";
+elif [ -f /etc/bash_completion ]; then
+	source /etc/bash_completion;
+fi;
+
+# Enable tab completion for `g` by marking it as an alias for `git`
+if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+	complete -o default -o nospace -F _git g;
+fi;
+
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
+
+# Add tab completion for `defaults read|write NSGlobalDomain`
+# You could just use `-g` instead, but I like being explicit
+complete -W "NSGlobalDomain" defaults;
+
+# Add `killall` tab completion for common apps
+complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+
+# Set the terminal title and prompt.
+PS1="\[\033]0;\W\007\]"; # working directory base name
+PS1+="\[${bold}\]\n"; # newline
+PS1+="\[${userStyle}\]\u"; # username
+PS1+="\[${white}\] at ";
+PS1+="\[${hostStyle}\]\h"; # host
+PS1+="\[${white}\] in ";
+PS1+="\[${green}\]\w"; # working directory full path
+PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
+PS1+="\n";
+PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+
+
+
+# if [ __is_repo ]; then
+#     export USE_GS_PROMPT=false
+#     PS1+='\n\n${X}${O}${H2HL}${X}
+# ${STYLE_PROMPT_USER}\u@\h${X} ${STYLE_REVERSE}${DELIMITER}${X} ${STYLE_PROMPT_DATE}\d \t${X} ${STYLE_REVERSE}${DELIMITER}${X} ${STYLE_PROMPT_PATH}\w${COL_NORM}\n
+# ${STYLE_PROMPT_BRANCH}$(__parse_git_branch_fun)$(__parse_git_branch_state)${X}
+# $ '
+# fi
+
+
+
+
+
+
+function manprev {
+	man -t $1 | open -fa Preview
+}
+
+# commented out 2014-03-11 while setting up ExactTarget machine
+# node-osx-notifier &> /dev/null &
+
+# commented out 2014-03-11 while setting up ExactTarget machine
+
+export PATH="./node_modules/.bin:$PATH"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

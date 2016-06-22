@@ -5,7 +5,6 @@
 # Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
 # Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
 #
-
 if type complete &>/dev/null; then
   _npm_completion () {
     local words cword
