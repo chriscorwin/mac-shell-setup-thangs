@@ -1,0 +1,4 @@
+# Opens a man file in Preview
+function manprev {
+	man -t $1 | open -fa Preview
+}
