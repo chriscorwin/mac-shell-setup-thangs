@@ -23,14 +23,14 @@ So you can put stuff in this very project, and they'll automatically get sourced
 This [dot-bash_extras.d](./dot-bash_extras.d) directory already contains several files (and symlinks to things you should have installed above!):
 
 - GitScripts-init-link -> `~/Documents/Utilities/GitScripts/_gsinit.sh`
-- aliases
-- bash_prompt
+- [aliases](./aliases)
+- [bash_prompt](./bash_prompt)
 - bashmarks-modified-link.sh -> `~/Documents/Utilities/bashmarks/bashmarks-modified.sh`
 - colorsh-link -> `~/Documents/Utilities/colorsh/SOURCEME`
-- exports
-- functions
-- iterm-variables.sh
-- npm-completion.sh
+- [exports](./exports)
+- [functions](./functions)
+- [iterm-variables.sh](./iterm-variables.sh)
+- [npm-completion.sh](./npm-completion.sh)
 
 ## VERY LAST THING -- replace your bash profile with a symlink to this one
 
