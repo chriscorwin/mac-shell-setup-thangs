@@ -5,6 +5,7 @@ My shell junk.
 
 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
+Then install [formulas](./brew-formulas-installed.md)
 
 ## Utilities
 
