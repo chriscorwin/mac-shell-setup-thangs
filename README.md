@@ -17,6 +17,7 @@ Install into `~/Documents/Utilities`
 - [GitScripts](https://github.com/chriscorwin/GitScripts)
 - [functionsh](https://github.com/chriscorwin/functionsh)
 
+
 ## Create a place for your sourced scripts to run
 
 We will make a symlink in home to the `dot-bash_extras.d` directory in this project, and call it `.bash_extras.d_link`.
@@ -38,6 +39,21 @@ This [dot-bash_extras.d](./dot-bash_extras.d) directory already contains several
 - [functions](./dot-bash_extras.d/functions)
 - [iterm-variables.sh](./dot-bash_extras.d/iterm-variables.sh)
 - [npm-completion.sh](./dot-bash_extras.d/npm-completion.sh)
+
+
+## Replace your `~/bin` with a symlink to `./bin.d`
+
+Back up your existing `bin/` directory.
+
+`mv ~/bin  ~/previous_bin`
+
+Make a symbolic link to `bin.d/` in your home directory.
+
+`ln -s ./bin.d ~/bin`
+
+:dancer: Don't forget to check on ownership and `+x` type permissions!
+
+
 
 ## VERY LAST THING -- replace your bash profile with a symlink to this one
 
