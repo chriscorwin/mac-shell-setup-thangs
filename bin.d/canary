@@ -1,0 +1,7 @@
+#!/bin/bash
+
+open -a Google\ Chrome\ Canary --args --disable-web-security
+
+# mkhan_qa3s1_ent2
+# testing1!
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+lessc /Users/ccorwin/Documents/Workspaces/fuelux-mctheme-csc/less/fuelux-mctheme.less > /Users/ccorwin/Documents/Workspaces/fuelux-mctheme-csc/less/fuelux-mctheme-no-namespace.less;
+lessc /Users/ccorwin/Documents/Workspaces/fuelux-mctheme-csc/less/fuelux-mctheme-namespace.less > /Users/ccorwin/Documents/Workspaces/fuelux-mctheme-csc/temp.less;
+subl /Users/ccorwin/Documents/Workspaces/fuelux-mctheme-csc/temp.less;

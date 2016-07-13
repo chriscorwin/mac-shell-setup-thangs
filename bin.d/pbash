@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+touch '/Users/ccorwin/Google Drive/Documents/pasteboard.sh'
+
+pbpaste > '/Users/ccorwin/Google Drive/Documents/pasteboard.sh'
+
+
+highlight -O rtf -t 2 -K 11 -k 'Source Code Pro' --syntax 'Bash' '/Users/ccorwin/Google Drive/Documents/pasteboard.sh' | pbcopy
+
+gist --type sh --open '/Users/ccorwin/Google Drive/Documents/pasteboard.sh'

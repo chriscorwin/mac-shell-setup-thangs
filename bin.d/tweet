@@ -1,0 +1,5 @@
+#!/bin/sh
+str="'$*'"
+message="$str"
+
+twurl -d "status=${message}" /1.1/statusus/update.json

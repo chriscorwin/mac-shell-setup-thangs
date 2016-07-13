@@ -1,0 +1,7 @@
+#!/bin/bash
+
+touch '/Users/ccorwin/Google Drive/Documents/pasteboard.html'
+
+pbpaste > '/Users/ccorwin/Google Drive/Documents/pasteboard.html'
+
+highlight -O rtf -t 2 -K 11 -k 'Source Code Pro' --syntax 'html' '/Users/ccorwin/Google Drive/Documents/pasteboard.html' | pbcopy

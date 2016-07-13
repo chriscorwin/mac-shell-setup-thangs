@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -o errexit # Exit on error
+
+NUM_ARGS=$#
+PORT=8080
+
+# parse arguments
+if (( NUM_ARGS > 0 && NUM_ARGS < 3 )); then
+	until [ -z "$1" ]; do
+		[ "$1" == "--port" ] && PORT=$2
+		shift
+	done
+fi
+
+
+lsof -n -i4TCP:$PORT | grep LISTEN | tr -s ' ' | cut -f 2 -d ' ' | xargs kill -9

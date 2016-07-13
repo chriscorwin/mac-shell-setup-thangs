@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Takes a in.mov file on the desktop and outputs an animated gif at ~/Dropbox/Screenshots/out.gif
+
+
+ffmpeg -i ~/Desktop/in.mov -s 960x800 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=4 --delay=3 > ~/Dropbox/Screenshots/out.gif

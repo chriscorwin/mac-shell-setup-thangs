@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+node ~/Documents/Workspaces/platform-tools/devconnect/app.js --absolute --config ~/Documents/Workspaces/platform-tools-proxy-config-qa3.js
+
+
+# then go to localhost:3000/loginhandler/
+# mkhan_qa3s1_ent2
+# testing1!
