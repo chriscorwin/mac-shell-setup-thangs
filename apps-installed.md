@@ -1,0 +1,105 @@
+# Applications Installed
+
+- [ ] 1Password 6.app
+- [ ] Adobe
+- [ ] Adobe Creative Cloud
+- [ ] Adobe Illustrator CC 2015
+- [ ] AlohaKey
+- [ ] Amazon Drive.app
+- [ ] Amazon Music.app
+- [ ] App Store.app
+- [ ] Atom Beta.app
+- [ ] Atom.app
+- [ ] Automator.app
+- [ ] Autonomy
+- [ ] Background Music.app
+- [ ] BetterTouchTool.app
+- [ ] Bitcasa Uninstaller.app
+- [ ] Calculator.app
+- [ ] Calendar.app
+- [ ] CalendarFree.app
+- [ ] Cashew.app
+- [ ] Chess.app
+- [ ] Cisco
+- [ ] Contacts.app
+- [ ] DVD Player.app
+- [ ] Dash.app
+- [ ] Dashboard.app
+- [ ] Dictionary.app
+- [ ] Dropbox.app
+- [ ] Evernote.app
+- [ ] FaceTime.app
+- [ ] Fantastical 2.app
+- [ ] FileZilla.app
+- [ ] Firefox.app
+- [ ] Flickr Uploadr.app
+- [ ] Font Book.app
+- [ ] ForkLift.app
+- [ ] GPG Keychain.app
+- [ ] Game Center.app
+- [ ] Gifox.app
+- [ ] GitKraken.app
+- [ ] Gitter.app
+- [ ] GoToMeeting
+- [ ] GoToMeeting.app
+- [ ] Google Chrome Canary.app
+- [ ] Google Chrome.app
+- [ ] Google Drive.app
+- [ ] IDrive.app
+- [ ] Image Capture.app
+- [ ] Kaleidoscope.app
+- [ ] Kontiki.app
+- [ ] Launchpad.app
+- [ ] Mail.app
+- [ ] Maps.app
+- [ ] Marked 2.app
+- [ ] Messages.app
+- [ ] Messenger for Facebook.app
+- [ ] Microsoft Messenger.app
+- [ ] Microsoft Office 2011
+- [ ] Minecraft.app
+- [ ] Mission Control.app
+- [ ] Notes.app
+- [ ] Numbers.app
+- [ ] Opera Beta.app
+- [ ] Path Finder.app
+- [ ] Photo Booth.app
+- [ ] Photos.app
+- [ ] PowerPhotos.app
+- [ ] Preview.app
+- [ ] Python 3.4
+- [ ] QuickTime Player.app
+- [ ] Quicksilver.app
+- [ ] R.app
+- [ ] RStudio.app
+- [ ] Reminders.app
+- [ ] Remote Desktop Connection.app
+- [ ] Safari Technology Preview.app
+- [ ] Safari.app
+- [ ] Screenhero.app
+- [ ] Simplenote.app
+- [ ] Sketch.app
+- [ ] Skype.app
+- [ ] Slack.app
+- [ ] Sophos Anti-Virus.app
+- [ ] SourceTree.app
+- [ ] Spotify.app
+- [ ] Stickies.app
+- [ ] Sublime Text.app
+- [ ] Sunrise Calendar.app
+- [ ] System Preferences.app
+- [ ] TextEdit.app
+- [ ] TextWrangler.app
+- [ ] Time Machine.app
+- [ ] TriggerClientUI.app
+- [ ] Tweetbot.app
+- [ ] Utilities
+- [ ] VLC.app
+- [ ] VMware Horizon Client.app
+- [ ] Visual Studio Code.app
+- [ ] Xcode.app
+- [ ] iBooks.app
+- [ ] iTerm.app
+- [ ] iTunes.app
+- [ ] nvALT.app
+- [ ] pgAdmin3.app
