@@ -399,9 +399,9 @@ class SublimeLinter(sublime_plugin.EventListener):
 
                     status += '; '.join(line_errors)
                     # new stuff
-                    view.show_popup('<style>html { background-color: #002b36; margin: 0px; color: #839496; } body { background-color: #002b36; margin: 5px; border: none; font-size: 11px; color: #839496; } div { margin: 0px; word-wrap:break-word; } a { color: #2aa198; } .error_line { color: #839496; margin: 4px 5px 8px; }</style> <div><p class="error_line">☞ ' + '</p><p class="error_line"> 🐴 '.join(line_errors) + '</p></div>',
+                    view.show_popup('<style>html { border: none; background-color: color(var(--background) blend(red 80%)); margin: 0px; } body { background-color: color(var(--background) blend(red 80%)); margin: 0rem 0.5rem; border: none; font-size: 1.25rem; } div { margin: 0px; word-wrap:break-word; } a { color: #2aa198; } .error_line { color: color(var(--foreground) blend(var(--redish) 85%)); margin: 0rem 0.5rem 0.325rem; } .largish { color: color(var(--foreground) blend(var(--redish) 55%)); font-size: 3rem; position: relative; top: 0.5rem; line-height: 0rem;} </style> <div><p class="error_line"><span class="largish">☞</span> ' + '</p><p class="error_line"> 🐴 '.join(line_errors) + '</p></div>',
                                     location=-1,
-                                    max_width=400)
+                                    max_width=500)
                     # end new stuff
                 else:
                     status = '%i error%s' % (count, plural)
