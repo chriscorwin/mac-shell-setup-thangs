@@ -1,12 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
+pbscript="/Users/ccorwin/Google Drive/Documents/pasteboard.html"
 
-touch '/Users/ccorwin/Google Drive/Documents/pasteboard.html'
+touch "${pbscript}"
 
-pbpaste > '/Users/ccorwin/Google Drive/Documents/pasteboard.html'
+pbpaste > "${pbscript}"
 
-highlight -O rtf -t 2 -K 11 -k 'Source Code Pro' '/Users/ccorwin/Google Drive/Documents/pasteboard.html' | pbcopy
+highlight -O rtf -t 2 -K 11 -k 'Source Code Pro' --syntax 'html' "${pbscript}" | pbcopy
 
+echo -n "Enter gist filename and press [ENTER]: "
 
-gist --filename 'pasteboard.html' --open '/Users/ccorwin/Google Drive/Documents/pasteboard.html'
+read gistfilename
 
+if [[ -n "${gistfilename/[ ]*\n/}" ]]
+then
+  #execute if the the variable is not empty and contains non space characters
+  echo "New filename is: ${gistfilename}";
+  gist --filename "${gistfilename}.html" --open "${pbscript}"
+else
+  echo "Using default (foo) filename.";
+  #execute if the variable is empty or contains only spaces
+  gist --type html --open "${pbscript}"
+fi
