@@ -13,7 +13,7 @@ Then install [formulas](./brew-formulas-installed.md).
 Install into `~/Documents/Utilities`
 
 - [bashmarks](https://github.com/chriscorwin/bashmarks)
-- [colorsh](git@github.com:chriscorwin/colorsh.git)
+- [colorsh](https://github.com/chriscorwin/colorsh)
 - [GitScripts](https://github.com/chriscorwin/GitScripts)
 - [functionsh](https://github.com/chriscorwin/functionsh)
 
