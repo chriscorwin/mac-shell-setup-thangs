@@ -2,15 +2,6 @@
 
 
 
-## Print a horizontal rule
-rule () {
-	printf -v _hr "%*s" $(tput cols) && echo ${_hr// /${1--}}
-}
-## Print a more different horizontal rule
-ruleHeading () {
-	printf -v _hr "%*s" $(tput cols) && echo ${_hr// /${1--}}
-}
-
 
 hiss() {
     usage="usage: hiss [query]"

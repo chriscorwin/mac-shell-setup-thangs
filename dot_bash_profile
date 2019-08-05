@@ -10,6 +10,15 @@ export PATH="./node_modules/.bin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 
+## Print a horizontal rule
+rule () {
+	printf -v _hr "%*s" $(tput cols) && echo ${_hr// /${1--}}
+}
+## Print a more different horizontal rule
+ruleHeading () {
+	printf -v _hr "%*s" $(tput cols) && echo ${_hr// /${1--}}
+}
+
 
 
 source ~/.profile
@@ -128,6 +137,7 @@ do
 										# echo "Is a file 5: $file5";
 										echo "${B}${COL_MAGENTA}.bash_profile will source: ${STYLE_INPUT}${file5}${X}"
 										source $file5
+										rule;
 									fi
 								done
 								continue
@@ -135,6 +145,7 @@ do
 								# echo "Is a file 4: $file4";
 								echo "${B}${COL_MAGENTA}.bash_profile will source: ${STYLE_INPUT}${file4}${X}"
 								source $file4
+								rule;
 							fi
 						done
 						continue
@@ -142,6 +153,7 @@ do
 						# echo "Is a file 3: $file3";
 						echo "${B}${COL_MAGENTA}.bash_profile will source: ${STYLE_INPUT}${file3}${X}"
 						source $file3
+						rule;
 					fi
 				done
 				continue
@@ -149,6 +161,7 @@ do
 				# echo "Is a file 2: $file2";
 				echo "${B}${COL_MAGENTA}.bash_profile will source: ${STYLE_INPUT}${file2}${X}"
 				source $file2
+				rule;
 			fi
 		done
 		continue
@@ -156,9 +169,10 @@ do
 		# echo "Is a file: $file";
 		echo "${B}${COL_MAGENTA}.bash_profile will source: ${STYLE_INPUT}${file}${X}"
 		source $file
+
 	fi
 done
 
-rule;
+rule 🛴
 
 
