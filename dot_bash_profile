@@ -63,6 +63,12 @@ then
 	export PROMPT_COMMAND='echo -ne "\033]0;${PWD/\/Users\/ccorwin\/Workspaces\//}\007"'
 fi
 
+if [[ $string =~ .*demuxe.* ]]
+then
+	export PROMPT_COMMAND='echo -ne "\033]0;${PWD/\/Users\/ccorwin\/demuxe\//}\007"'
+fi
+
+
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;

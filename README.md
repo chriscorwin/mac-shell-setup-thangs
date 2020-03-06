@@ -41,17 +41,31 @@ This [dot-bash_extras.d](./dot-bash_extras.d) directory already contains several
 - [npm-completion.sh](./dot-bash_extras.d/npm-completion.sh)
 
 
+## Set up iTerm Shell Integration
+
+Back up your existing `.iterm2_shell_integration.bash` file:
+
+`mv $HOME/.iterm2_shell_integration.bash  $HOME/previous_dot_iterm2_shell_integration.bash`
+
+Make a symbolic link to `dot_iterm2_shell_integration.bash`:
+
+`ln -s $HOME/Documents/Utilities/mac-shell-setup-thangs/dot_iterm2_shell_integration.bash $HOME/.iterm2_shell_integration.bash`
+
+
+
 ## Replace your `$HOME/bin` with a symlink to `./bin.d`
 
-Back up your existing `bin/` directory.
+Back up your existing `bin/` directory:
 
 `mv $HOME/bin  $HOME/previous_bin`
 
-Make a symbolic link to `bin.d/` in your home directory.
+Make a symbolic link to `bin.d/` in your home directory:
 
 `ln -s $HOME/Documents/Utilities/mac-shell-setup-thangs/bin.d $HOME/bin`
 
 :dancer: Don't forget to check on ownership and `+x` type permissions!
+
+
 
 
 
