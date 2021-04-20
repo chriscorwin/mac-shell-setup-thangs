@@ -1,0 +1,23 @@
+#!/bin/bash
+## Set the output path for screen grabs, requires a valid path.
+## Example Path
+## /Users/ccorwin/Library/Mobile\ Documents/com~apple~CloudDocs/Workspaces/demuxe-slack-demos-poc-work/lobe-ai-slack-project/slack-screenshots-for-training-ai 
+screenshot_path_default="${HOME}/Dropbox/Screenshots"
+setScreenshotLocation(){
+	location="$1"
+	mkdir -p "$location"
+	defaults write com.apple.screencapture location "$location"
+}
+stopUIServer(){
+	process_id="$(pgrep SystemUIServer)"
+	kill -9 "$process_id"
+}
+setScreenshotLocation "$screenshot_path_default"
+read -r -p "Enter (or paste) path for screenshots and press [RETURN]:" screenshot_path_override 
+if [ -n "${screenshot_path_override/[ ]*\n/}" ]; then
+	if setScreenshotLocation "$screenshot_path_override"; then
+  	    echo "Updated Screenshot Path: ${screenshot_path_override}";
+	fi
+	stopUIServer && exit
+fi
+echo "Using default (${screenshot_path_default}) path for screenshots."
