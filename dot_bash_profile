@@ -188,3 +188,4 @@ if [ -f '/Users/ccorwin/Documents/Utilities/google-cloud-sdk/completion.bash.inc
 
 # cd ~/demuxe && echo "Welcome, your current directory is:" && pwd && echo "" && echo
 export NVM_DIR="$HOME/.nvm"
+# export GPG_TTY=$(tty)
